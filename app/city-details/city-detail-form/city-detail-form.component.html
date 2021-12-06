@@ -1,0 +1,31 @@
+<form novalidate autocomplete="off" #form="ngForm">
+    <input type="hidden" name="Id"
+    [value]="service.formData.Id" />
+    
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control form-control-lg" placeholder="Enter city name"
+        name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name"
+        required [class.invalid]="Name.invalid">
+    </div>
+
+    <div class="form-group">
+        <label>CountryId</label>
+        <input class="form-control form-control-lg" placeholder="Enter CountryId"
+        name="CountryId" #Name="ngModel" [(ngModel)]="service.formData.CountryId">
+    </div>
+    <div class="form-group m-3" style="display: inline;">
+        <button 
+        routerLink="city-details"
+        class="btn btn-info btn-lg btn-block"  [disabled]="form.invalid" (click)="add(form)">Add </button>
+       
+        <router-outlet></router-outlet>
+    </div>
+    <div class="form-group" style="display: inline;">
+        <button 
+        routerLink="city-details"
+        class="btn btn-info btn-lg btn-block"  [disabled]="form.invalid"  (click)="edit(form)">Edit </button>
+       
+        <router-outlet></router-outlet>
+    </div>
+</form>

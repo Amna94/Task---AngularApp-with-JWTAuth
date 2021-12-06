@@ -1,0 +1,76 @@
+<form novalidate autocomplete="off" #form="ngForm" >
+    <input type="hidden" name="Id"
+    [value]= "service.formData.Id" />
+
+    <div class="form-group col-md-6">
+        <label>First name</label>
+        <input class="form-control form-control-lg" placeholder="First name"
+        name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName"
+        required [class.invalid]="FirstName.invalid">
+    </div>
+    
+    <div class="form-group col-md-6">
+        <label>Last name</label>
+        <input class="form-control form-control-lg" placeholder="Last name"
+        name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName"
+        required [class.invalid]="LastName.invalid">
+    </div>
+
+    <div class="form-grou col-md-6">
+        <label>Username</label>
+        <input class="form-control form-control-lg" placeholder="Username"
+        name="Username" #Username="ngModel" [(ngModel)]="service.formData.Username"
+        required [class.invalid]="Username.invalid">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label>Password</label>
+        <input class="form-control form-control-lg" placeholder="Password"
+        name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password"
+        required maxlength="16" minlength="8" [class.invalid]="Password.invalid">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label>Email</label>
+        <input class="form-control form-control-lg" placeholder="Email"
+        name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email"
+        required [class.invalid]="Email.invalid">
+    </div>
+
+    <div class="form-group col-md-6">
+        <label>Phone number</label>
+        <input class="form-control form-control-lg" placeholder="Phone number"
+        name="PhoneNumber" #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber"
+        required maxlength="15" minlength="9" [class.invalid]="PhoneNumber.invalid">
+    </div>
+
+        <div class="form-group col-md-3">
+            <label>CityId</label>
+            <input class="form-control form-control-lg" placeholder="CityId"
+            name="CityId" #CityId="ngModel" [(ngModel)]="service.formData.CityId"
+            required [class.invalid]="CityId.invalid">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label>RoleId</label>
+            <input class="form-control form-control-lg" placeholder="RoleId"
+            name="RoleId" #RoleId="ngModel" [(ngModel)]="service.formData.RoleId"
+            required [class.invalid]="RoleId.invalid">
+        </div>
+
+    <div class="form-group m-3" style="display: inline;">
+        <button 
+        routerLink="users-details"
+        class="btn btn-info btn-lg btn-block" [disabled]="form.invalid" (click)="add(form)">Add </button>
+
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="form-group m-3" style="display: inline;">
+    <button 
+        routerLink="users-details"
+        class="btn btn-info btn-lg btn-block" [disabled]="form.invalid" (click)="edit(form)">Edit </button>
+
+        <router-outlet></router-outlet>
+    </div>
+</form>
